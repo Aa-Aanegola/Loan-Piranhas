@@ -1,0 +1,119 @@
+// create transaction
+mutation transaction($idb: ID!, $pa: Float, $nft: NftCreateManyInlineInput, $bidend: DateTime, $transend: DateTime) {
+  createTransaction(
+    data: {borrower: {connect: {id: $idb}}, principalAmount: $pa, collateral: $nft, bidEnd: $bidend, transactionEnd: $transend}
+  ) {
+    lender {
+      id
+    }
+    borrower {
+      id
+    }
+  }
+}
+// input 
+{
+  "idb": "cl3q7okbu5wl30co5uhlxu8ow",
+  "bidend": "2022-05-29T16:09:53+00:00",
+  "transend": "2022-09-29T16:09:53+00:00",
+  "pa": 696969,
+  "nft": {"connect": [{
+    "id": "cl3q7obis5wki0co5jj1boejk"
+  }]}
+}
+
+
+// create user
+mutation client($name: String!, $nft: NftCreateManyInlineInput) {
+  createClient(data: {name: $name, nfts: $nft}) {
+    name
+    nfts {
+      id
+    }
+  }
+}
+// input
+{
+  "name": "herb2",
+  "nft": {"connect": [{
+    "id": "cl3q7obis5wki0co5jj1boejk"
+  }]}
+}
+
+
+// create nft
+mutation nft($name: String!, $image: String) {
+  createNft(data: {name: $name, image: $image}) {
+    name
+  }
+}
+// input
+{
+  "name": "enough is enough",
+  "image": "ajdhfskdfsbvsbjvbf",
+  "client": { "connect": {
+    "id": "cl3q7okbu5wl30co5uhlxu8ow"
+  	}
+  }
+}
+
+
+// update transaction for bidder
+mutation updateTransaction($id: ID!, $lid: ClientUpdateOneInlineInput, $interest:Float) {
+  updateTransaction(
+    where: {id: $id}
+    data: {lender: $lid, interest: $interest}
+  ) {
+    borrower {
+      id
+    }
+    lender {
+      id
+    }
+    interest
+  }
+}
+// input
+{
+  "id": "cl3q9rrs75xoh0co5dyyfjm3j",
+  "lid": {"connect": {"id": "cl3q7okbu5wl30co5uhlxu8ow"}},
+  "interest": 4000.0
+}
+
+
+// update transaction for borrower
+mutation updateTransaction($id: ID!, $pa:Float, $nft: NftUpdateManyInlineInput, $bid: DateTime, $trans: DateTime) {
+  updateTransaction(
+    where: {id: $id}
+    data: {principalAmount: $pa, collateral: $nft, bidEnd:$bid, transactionEnd: $trans}
+  ) {
+    borrower {
+      name
+    }
+    lender {
+      name
+    }
+    principalAmount
+    collateral {
+      id
+    }
+    bidEnd
+    transactionEnd
+  }
+}
+
+
+// delete nft
+mutation deleteNft ($id: ID!) {
+  deleteNft (
+    where: {id: $id}
+  ) {
+    nftId
+    name
+    image
+  }
+}
+// input
+{
+  "id": "cl3qf2y235yzk0fpe3pssk0y3"
+}

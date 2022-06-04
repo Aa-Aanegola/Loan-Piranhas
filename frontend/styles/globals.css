@@ -1,0 +1,67 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 2rem;
+  font-family: Roboto;
+}
+
+.main {
+  flex: 1;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.click2Copy {
+  cursor: pointer;
+}
+
+.grid-p {
+  font-size: 20px;
+}
+
+.card {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+  cursor: pointer;
+  min-height: 350px;
+}
+.card:hover {
+  top: -10px;
+}
+
+.input-field {
+  width:50%;
+  margin-bottom: 1rem;
+}
+
+.modal-input-field{
+    width:100%;
+    margin: 15px 0;
+}
