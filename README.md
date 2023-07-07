@@ -2,10 +2,10 @@
 
 # Beaches and Barbells
 
-**Aakash Aanegola
-Dhruv Kapur
-Ritvik Aryan Kalra
-Sidharth Giri
+**Aakash Aanegola,
+Dhruv Kapur,
+Ritvik Aryan Kalra,
+Sidharth Giri &
 Arihanth Srikar Tadanki**
 
 Business owners typically face a roadbump when they try to get their businesses up and running. Finding seed capital without staking irrational stakes in their nascent businesses or paying unreasonable interest rates is rather difficult, and more often than not businesses end up failing due to a lack of seed capital or gargantuan debt, with the loan sharks turning a profit at the expense of the business owners. 
